@@ -3,25 +3,29 @@
   <html lang="en">
     <head></head>
     <body>
-      <a href="http://www.kubsu.ru">ссылка на кубгу</a><br /><a
-        href="http://kubsu.ru"
-        >Еще одна ссылка</a
-      ><br /><a href="http://kubsu.ru"
-        ><img src="image.jpg" width="200" height="200" alt="photka" /></a
-      ><br /><a href="secondPage.html">перейти на новую страницу</a><br /><a
-        href="http://kubsu.ru/index.php#block-block-8"
-        >ссылка на id кубгу</a
-      ><br /><a
-        href="https://www.mvideo.ru/noutbuki-planshety-komputery-8/noutbuki-118?f_price=300000-443030&f_tolko-v-nalichii=da&f_brand=asus"
-        >Ссылка с кучей параметров</a
-      ><br /><a href="#link_id">ссылка на какой-то текст</a><br />
-      <p id="link_id">Какой-то текст</p>
-      <a href="/1/2/file2.html">ссылка на 2 каталога ниже</a><br /><a
-        href="../../file.html"
-        >ссылка на 2 каталога выше</a
-      ><br /><a href="https://example.com/about">с котологом about</a><br /><a
-        >ссылка без href</a
-      ><br /><a href="">ссылка с пустым href</a>
+      <ul>
+        <li><a href="https://kubsu.ru">Абсолютная гиперссылка на главную страницу сайта kubsu.ru</a></li>
+        <li><a href="https://kubsu.ru">Абсолютная ссылка на главную страницу сайта kubsu.ru с https</a></li>
+        <li><a href="https://kubsu.ru/image.jpg">Ссылка-изображение</a></li>
+        <li><a href="/internal-page">Сокращённая ссылка на внутреннюю страницу</a></li>
+        <li><a href="/">Сокращённая ссылка на главную страницу</a></li>
+        <li><a href="#fragment">Ссылка на фрагмент текущей страницы</a></li>
+        <li><a href="https://example.com?param1=value1&param2=value2&param3=value3">Ссылка с тремя параметрами в URL</a></li>
+        <li><a href="https://example.com#id">Ссылка с параметром id в URL</a></li>
+        <li><a href="page-in-current-directory.html">Относительная ссылка на страницу в текущем каталоге</a></li>
+        <li><a href="about/about.html">Относительная ссылка на страницу в каталоге уровнем выше текущего</a></li>
+        <li><a href="../two-levels-up/index.html">Относительная ссылка на страницу в каталоге двумя уровнями выше</a></li>
+        <li><a href="https://example.com#fragment">Ссылка на фрагмент страницы стороннего сайта</a></li>
+        <li><a href="#">Ссылка с пустым href</a></li>
+        <li><a>Ссылка без href</a></li>
+        <li><a href="https://example.com" rel="nofollow">Ссылка, по которой запрещён переход поисковикам</a></li>
+        <li><a href="https://example.com" rel="noindex">Запрещённая для индексации поисковиками</a></li>
+        <li><a href="https://example.com" title="Описание ссылки">Нумерованный список ссылок с подписками title</a></li>
+        <li><a href="ftp://example.com/file.txt" title="Файл на FTP-сервере с авторизацией">Ссылка на файл на сервере FTP с авторизацией</a></li>
+        <li><a href="#" rel="nofollow">Ссылка по которой запрещен переход поисковикам</a></li>
+        <noindex><li><a href="#">Ссылка запрещенная для индексации поисковиками</a></li></noindex>
+    </ul>
+    <ul>
       <ol type="1">
         <li><a href="https://example.com">ссылка 1</a></li>
         <li><a href="https://example.com/2">ссылка 2</a></li>
@@ -29,13 +33,6 @@
         <li><a href="https://example.com/4">ссылка 4</a></li>
         <li><a href="https://example.com/5">ссылка 5</a></li>
       </ol>
-      <a href="ftp://user:pass123@tavalik.ru/Temp/file.txt"
-        >ссылку на файл на сервере FTP с авторизацией;</a
-      ><noindex
-        ><a href="https://example.com">ссылка за запретом на индекс</a></noindex
-      ><a href="https://example.com" rel="nofollow"
-        >ссылка за запретом на переход из браузера</a
-      >
       <form>
         <label
           >Биография:<br /><textarea
@@ -45,7 +42,7 @@
         </label>
         <label
           >Любимый язык программирования:<br /><select
-            name="languages"
+            name="languages[]"
             multiple="multiple"
           >
             <option value="pascal" selected="selected">Pascal</option>
@@ -59,22 +56,24 @@
             <option value="clojure" selected="selected">Clojure</option>
             <option value="prolog" selected="selected">Prolog</option>
             <option value="scala" selected="selected">Scala</option>
-          </select></label
-        >
-        <label
-          ><br /><input
+          </select></label>
+        <label>
+          <br/>
+          <input
             name="phone"
             type="tel"
-            placeholder="Введите ваш телефон" /></label
-        ><br /><label
-          ><input
+            placeholder="Введите ваш телефон" /></label>
+        <br/>
+        <label><input
             name="email"
             type="email"
-            placeholder="Введите вашу почту" /></label
-        ><br /><label><input name="birthdate" type="date" /></label><br /><label
-          ><input type="radio" name="gender" value="male"
-        /></label>
-        <label><input type="radio" name="gender" value="female" /></label><br />
+            placeholder="Введите вашу почту" >
+        </label><br/>
+        <label>
+          <input name="birthdate" type="date"></label><br/><label><input type="radio" name="gender" value="male"/>
+        </label>
+        <label><input type="radio" name="gender" value="female" ></label>
+        <br/>
       </form>
     </body>
   </html>
